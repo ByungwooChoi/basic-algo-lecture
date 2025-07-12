@@ -66,3 +66,66 @@ int main(void){
   }
   cout << "IMPOSSIBLE"; // 여기에 도달했다는 것은 탈출에 실패했음을 의미.
 }
+
+// #include <bits/stdc++.h>
+// #include <list>
+// using namespace std;
+
+// string board[1002];
+// pair<int, int> dit[1002][1002];
+// int n, m;
+// int dx[4] = {1,0,-1,0};
+// int dy[4] = {0,1,0,-1}; // 상하좌우 네 방향을 의미
+
+// int main(void){
+//     ios::sync_with_stdio(0);
+//     cin.tie(0);
+//     cin >> n >> m;
+//     queue<pair<int, int>> Q1;
+//     queue<pair<int, int>> Q2;
+//     for(int i=0;i<n;i++){
+//         cin >> board[i];
+//     }
+//     for(int i=0;i<n;i++){
+//         for(int j=0;j<m;j++){
+//             if(board[i][j] == 'J'){
+//                 dit[i][j] = {-1, 0};
+//                 Q2.push({i, j});
+//             }else if(board[i][j] == 'F'){
+//                 dit[i][j] = {0, -1};
+//                 Q1.push({i, j});
+//             }else{
+//                 dit[i][j] = {-1, -1};
+//             }
+//         }
+//     }
+
+//     while(!Q1.empty()){
+//         auto cur = Q1.front(); Q1.pop();
+//         for(int dir = 0; dir < 4; dir++){
+//             int nx = cur.first + dx[dir];
+//             int ny = cur.second + dy[dir];
+//             if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+//             if(board[nx][ny] == '#' || dit[nx][ny].first >= 0) continue;
+//             dit[nx][ny].first = dit[cur.first][cur.second].first + 1;
+//             Q1.push({nx, ny});
+//         }
+//     }
+
+//     while(!Q2.empty()){
+//         auto cur = Q2.front(); Q2.pop();
+//         for(int dir = 0; dir < 4; dir++){
+//             int nx = cur.first + dx[dir];
+//             int ny = cur.second + dy[dir];
+//             if(nx < 0 || nx >= n || ny < 0 || ny >= m){
+//                 cout << dit[cur.first][cur.second].second+1;
+//                 return 0;
+//             }
+//             if(board[nx][ny] == '#' || dit[nx][ny].second >= 0) continue;
+//             if(dit[nx][ny].first != -1 && dit[nx][ny].first <= dit[cur.first][cur.second].second + 1) continue;
+//             dit[nx][ny].second = dit[cur.first][cur.second].second + 1;
+//             Q2.push({nx, ny});
+//         }
+//     }
+//     cout << "IMPOSSIBLE"; 
+// }   

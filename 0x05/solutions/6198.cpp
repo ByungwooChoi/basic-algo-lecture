@@ -19,7 +19,7 @@ int main() {
   ll h;
   while (n--) {
     cin >> h;
-    while(!s.empty() && s.top() <= h)
+    while(!s.empty() && s.top() <= h) // empty를 체크하고 top을 호출해야 함.
       s.pop();
     ans += s.size();
     s.push(h);

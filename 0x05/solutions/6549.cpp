@@ -9,29 +9,29 @@ using namespace std;
 int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
-  while (true) {
-    int n;
-    cin >> n;
-    if (n == 0) break;
-    stack<pair<int, int>> S;
-    long long ans = 0;
-    for (int i = 0; i < n; i++) {
-      int h;
-      cin >> h;
-      int idx = i;
-      while (!S.empty() && S.top().X >= h) {
-        ans = max(ans, 1LL * (i - S.top().Y) * S.top().X);
-        idx = S.top().Y;
-        S.pop();
-      }
-      S.push({h, idx});
+  while(true){
+        long long ans = 0;
+        stack<pair<long long, long long>> s;
+        int n;
+        cin >> n;
+        if(n==0) return 0;
+        for(int i=0;i<n;i++){
+            int x;
+            int index = i;
+            cin >> x;
+            while(!s.empty() && s.top().first >= x){
+                ans = max(ans, (i - s.top().second) * s.top().first);
+                index = s.top().second;
+                s.pop();
+            }
+            s.push({x, index});
+        }
+        while(!s.empty()){
+            ans = max(ans, (n - s.top().second) * s.top().first);
+            s.pop();
+        }
+        cout << ans << "\n";
     }
-    while (!S.empty()) {
-      ans = max(ans, 1LL * (n - S.top().Y) * S.top().X);
-      S.pop();
-    }
-    cout << ans << '\n';
-  }
 }
 
 /*

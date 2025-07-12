@@ -40,7 +40,7 @@ int bfs() {
         dist[nx][ny][broken] = nextdist;
         q.push({nx, ny, broken});
       }      
-      // (nx, ny)를 부수는 경우
+      // (nx, ny)를 부수는 경우 dist[nx][ny][1] == -1 는 부순경로에서는 간적없어야함 그래야 부술 수 있으니까 + broken이 0 즉 부순적없어야함
       if (!broken && board[nx][ny] == '1' && dist[nx][ny][1] == -1) {
         dist[nx][ny][1] = nextdist;
         q.push({nx, ny, 1});

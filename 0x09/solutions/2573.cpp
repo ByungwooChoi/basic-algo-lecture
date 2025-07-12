@@ -35,6 +35,15 @@ void melting(){
       }
     }
   }
+
+  cout << '\n';
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cout << zero[i][j] << " ";
+        }
+        cout << '\n';
+    }
+
   for(int i = 0; i < n; i++){
     for(int j = 0; j < m; j++)
       area[i][j] = max(0, area[i][j] - zero[i][j]);    

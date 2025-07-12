@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/choebyeong-u/Desktop/Develop/basic-algo-lecture/0x01/test'
+relocations:     []
+...

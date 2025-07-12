@@ -31,7 +31,7 @@ int main(void){
             Q.push({i,j,k});
             dist[i][j][k] = 0;
           }
-          else if(board[i][j][k] == '.') dist[i][j][k] = -1;
+          // else if(board[i][j][k] == '.') dist[i][j][k] = -1;
         }
       }
     }
@@ -57,7 +57,7 @@ int main(void){
         Q.push({nh,nx,ny});
       }
     }
-    while(!Q.empty()) Q.pop();
+    // while(!Q.empty()) Q.pop();
     if(!isEscape) cout << "Trapped!" << "\n";
   }
 }

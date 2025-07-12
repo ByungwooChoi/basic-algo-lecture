@@ -16,7 +16,7 @@ void run(int x){
   while(true){
     state[cur] = x;
     cur = arr[cur];
-    // 이번 방문에서 지나간 학생에 도달했을 경우
+    // 이번 방문에서 지나간 학생에 도달했을 경우  cycle이 완성된 경우, 한 번 더 돌면서 싸이클인 애들은 -1로 만들기
     if(state[cur] == x){
       while(state[cur] != CYCLE_IN){
         state[cur] = CYCLE_IN;
@@ -24,7 +24,7 @@ void run(int x){
       }
       return;
     }
-    // 이전 방문에서 지나간 학생에 도달했을 경우
+    // 이전 방문에서 지나간 학생에 도달했을 경우 이미 싸이클이 아닌걸로 판정된 애를 재방문 한 경우
     else if(state[cur] != 0) return;
   }
 }
